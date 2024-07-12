@@ -1,0 +1,29 @@
+h1 {
+    margin: auto 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+}
+
+header > div button {
+    margin: auto 30px;
+    padding: 10px 30px;
+    font-weight: bolder;
+}
+
+.logo_box {
+    width: 100px;
+}
+
+.logo_box > img {
+    width: 100%;
+}
