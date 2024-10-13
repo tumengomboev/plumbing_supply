@@ -7,7 +7,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    padding: 0 10%;
 }
 
 header > div {
@@ -19,6 +19,10 @@ header > div button {
     margin: auto 30px;
     padding: 10px 30px;
     font-weight: bolder;
+}
+
+section {
+    padding: 0 10%;
 }
 
 .logo_box {
@@ -36,3 +40,75 @@ header > div button {
     background-position: center;
     margin: 50px auto;
 }
+
+.search_bar {
+    height: 40px;
+    position: relative;
+    padding: 10px 5px;
+    border: 1px black solid;
+}
+
+.search_bar > input[type="text"] {
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    position: absolute;
+    font-size: 20px;
+    padding: 5px 20px;
+}
+
+.search_bar > button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 40px;
+    width: 60px;
+}
+
+.item_collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 70px;
+    margin: 50px auto;
+}
+
+.item_collection > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px black solid;
+}
+
+.item_collection > div h4 {
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.474);
+}
+
+.contacts {
+    margin: 50px auto;
+}
+
+.contacts > h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.contacts > div {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.contacts > div p {
+    text-align: left;
+}
+
+`

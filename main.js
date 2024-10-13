@@ -185,8 +185,7 @@ function checkAge(age) {
 //     }
 // )
 
-document.querySelector(".logo_box > img").addEventListener("click", function() {
-    document.getElementById("page").style.display = "none"
-})
+//document.querySelector(".logo_box > img").addEventListener("click", function() {
+//    document.getElementById("page").style.display = "none"
+//})
 
-``
