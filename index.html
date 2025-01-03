@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/popup.css">
     <title>Plumbing Supply</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
             <h1>Plumbing Supply</h1>
         </div>
         <div>
-            <button onclick="alert('oops')">Login</button>
+            <button class="popup_opener" data-popup_id="login_form">Login</button>
             <div>
                 <i class="material-symbols-outlined">shopping_cart</i>
             </div>
@@ -42,6 +43,8 @@
                 <h4>Accessories</h4>
             </div>
         </div>
+    </section>
+    <footer>
         <div class="contacts">
             <h3>Contacts</h3>
             <div>
@@ -59,14 +62,85 @@
                 </ul>
             </div>
         </div>
-    </section>
+    </footer>
+    <div id="login_form" class="popup hidden">
+        <div class="closer">⨯</div>
+        <h3>Log In</h3>
+        <form action="">
+            <div>
+                <label>
+                    Email address
+                    <!-- <br> -->
+                    <input type="email">
+                </label>
+            </div>
+            <div>
+                <label>
+                Password
+                <!-- <br> -->
+                <input type="password">
+                </label>
+            </div>
+            <div class="button_box">
+                <button type="submit">Sign In</button>
+            </div>
+            <div class="button_box item_braker">or</div>
+            <div class="button_box">
+                <button class="popup_opener" data-popup_id="register_form" data-close_popup_id="login_form">Register</button>
+            </div>
+        </form>
+    </div>
+    <div id="register_form" class="popup hidden">
+        <div class="closer">⨯</div>
+        <h3>Register</h3>
+        <form action="">
+            <div>
+                <label>
+                    First name
+                    <input type="text">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Last name
+                    <input type="text">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Email address
+                    <input type="email">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Create password
+                    <input type="password">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Phone number
+                    <input type="tel">
+                </label>
+            </div>
+            <div class="button_box">
+                <button>Register</button>
+            </div>
+            <div class="button_box item_braker">or</div>
+            <div class="button_box">
+                <button type="submit" class="popup_opener" data-popup_id="login_form" data-close_popup_id="register_form">Sign In</button>
+            </div>
+        </form>
+    </div>
     <script>
         // window.onload = function(){
         //     console.log("hello world")
         //     alert("hello guys")
         // }
     </script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/popup.js"></script>
 </body>
 </html>
 
