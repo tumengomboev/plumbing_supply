@@ -34,7 +34,7 @@ section {
 }
 
 .top_banner {
-    background-image: url(../assets/images/header_banner.jpg);
+    background-image: url(/src/images/header_banner.jpg);
     height: 300px;
     background-repeat: no-repeat;
     background-position: center;
