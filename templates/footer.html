@@ -1,17 +1,100 @@
-<div class="contacts">
-    <h3>Contacts</h3>
-    <div>
-        <p>
-            1234 palatine rd, Chicago, IL 60007
-            <br>
-            plumbingggsupplycorp@gmail.com
-            <br>
-            +1 100 100 1000
-        </p>
-        <ul>
-            <li><a href="instagram.com">instagram</a></li>
-            <li><a href="facebook.com">Facebook</a></li>
-            <li><a href="telegram.org">Telegram</a></li>
-        </ul>
+</section>
+<footer>
+    <div class="contacts">
+        <h3>Contacts</h3>
+        <div>
+            <p>
+                1234 palatine rd, Chicago, IL 60007
+                <br>
+                plumbingggsupplycorp@gmail.com
+                <br>
+                +1 100 100 1000
+            </p>
+            <ul>
+                <li><a href="instagram.com">instagram</a></li>
+                <li><a href="facebook.com">Facebook</a></li>
+                <li><a href="telegram.org">Telegram</a></li>
+            </ul>
+        </div>
     </div>
+</footer>
+<div id="login_form" class="popup hidden">
+    <div class="closer">⨯</div>
+    <h3>Log In</h3>
+    <form action="">
+        <div>
+            <label>
+                Email address
+                <!-- <br> -->
+                <input type="email">
+            </label>
+        </div>
+        <div>
+            <label>
+            Password
+            <!-- <br> -->
+            <input type="password">
+            </label>
+        </div>
+        <div class="button_box">
+            <button type="submit">Sign In</button>
+        </div>
+        <div class="button_box item_braker">or</div>
+        <div class="button_box">
+            <button class="popup_opener" data-popup_id="register_form" data-close_popup_id="login_form">Register</button>
+        </div>
+    </form>
 </div>
+<div id="register_form" class="popup hidden">
+    <div class="closer">⨯</div>
+    <h3>Register</h3>
+    <form action="">
+        <div>
+            <label>
+                First name
+                <input type="text">
+            </label>
+        </div>
+        <div>
+            <label>
+                Last name
+                <input type="text">
+            </label>
+        </div>
+        <div>
+            <label>
+                Email address
+                <input type="email">
+            </label>
+        </div>
+        <div>
+            <label>
+                Create password
+                <input type="password">
+            </label>
+        </div>
+        <div>
+            <label>
+                Phone number
+                <input type="tel">
+            </label>
+        </div>
+        <div class="button_box">
+            <button>Register</button>
+        </div>
+        <div class="button_box item_braker">or</div>
+        <div class="button_box">
+            <button type="submit" class="popup_opener" data-popup_id="login_form" data-close_popup_id="register_form">Sign In</button>
+        </div>
+    </form>
+</div>
+<script>
+    // window.onload = function(){
+    //     console.log("hello world")
+    //     alert("hello guys")
+    // }
+</script>
+<script src="/src/js/main.js"></script>
+<script src="/src/js/popup.js"></script>
+</body>
+</html>

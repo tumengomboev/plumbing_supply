@@ -74,18 +74,23 @@ section {
     margin: 50px auto;
 }
 
-.item_collection > div {
+.item_collection  a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
     height: 200px;
+}
+
+.item_collection div {
     background-repeat: no-repeat;
     background-position: center;
     border: 1px black solid;
+    width: 100%;
+    height: 100%;
 }
 
-.item_collection > div h4 {
+.item_collection  div h4 {
     text-transform: uppercase;
     font-size: 20px;
     padding: 10px 20px;
@@ -109,4 +114,46 @@ section {
 
 .contacts > div p {
     text-align: left;
+}
+
+.type_item_page {
+    margin: 50px 20px;
+}
+
+.type_item_page ul {
+
+}
+
+.type_item_page ul > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: lightblue;
+}
+
+.type_item_page ul > li div:nth-child(1) {
+    width: 25%;
+    height: 200px;
+}
+
+.type_item_page ul > li div:nth-child(1) img {
+    height: 100%;
+}
+
+.type_item_page ul > li div:nth-child(2) {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: -webkit-fill-available;
+}
+
+.type_item_page ul > li div:nth-child(2) h4 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 10px 0;
+    margin: 0;
 }

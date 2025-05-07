@@ -3,11 +3,48 @@ import json
 from urllib.parse import urlparse, parse_qs
 from jinja2 import Environment, FileSystemLoader
 import os
+from product_service import ProductService
+import re
 
 
 environment = Environment(loader=FileSystemLoader("templates"))
 
 class MyServer(BaseHTTPRequestHandler):
+    
+
+    def my_parse_path(self, template: str, actual_path: str) -> dict:
+        # Match placeholders: {name:type}
+        pattern_parts = []
+        type_casts = {}
+
+        for part in template.strip('/').split('/'):
+            match = re.match(r'{(\w+):(int|str|float)}', part)
+            if match:
+                name, type_name = match.groups()
+                pattern_parts.append(f'(?P<{name}>[^/]+)')
+                type_casts[name] = {'int': int, 'str': str, 'float': float}[type_name]
+            else:
+                pattern_parts.append(re.escape(part))  # escape static path parts
+
+        pattern_regex = '^' + '/'.join(pattern_parts) + '$'
+        regex = re.compile(pattern_regex)
+
+        actual_parts = actual_path.strip('/')
+        match = regex.match(actual_parts)
+
+        if not match:
+            return None  # or raise error
+
+        extracted = {}
+        for key, value in match.groupdict().items():
+            try:
+                extracted[key] = type_casts[key](value)
+            except ValueError:
+                raise ValueError(f"Cannot cast '{value}' to {type_casts[key]}")
+        
+        return extracted
+
+
     def do_POST(self):
         content_type = self.headers.get("Content-type")
         content_length = int(self.headers['Content-Length'])
@@ -37,7 +74,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.end_headers()
 
             template = environment.get_template("index.html")
-            html_content = template.render(title="Plumbing Supply")
+            html_content = template.render(title="Plumbing Supply", product_types=ProductService.get_product_types())
             self.wfile.write(html_content.encode())
         elif self.path.startswith('/src/'):
             file_path = str(self.path).lstrip('/')
@@ -67,6 +104,27 @@ class MyServer(BaseHTTPRequestHandler):
                     self.wfile.write(file.read())
             else:
                 self.send_error(404, "File Not Found")
+
+        elif self.path.startswith('/product_type/'):
+            parsed_url = urlparse(self.path)
+
+            route_params = self.my_parse_path(template="/product_type/{type:str}", actual_path=parsed_url.path)
+            print(route_params)
+            
+            query_params = parse_qs(parsed_url.query)
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+
+            product_list = ProductService.get_product_by_type(route_params['type'])
+            template = environment.get_template("type_page.html")
+            html_content = template.render(
+                title=f"Plumbing Supply | {route_params['type']}",
+                product_type=route_params['type'],
+                product_list=product_list)
+            self.wfile.write(html_content.encode())
+
+        
        
 def run(server_class=HTTPServer, handler_class=MyServer, port=8080):
     server_address = ("", port)
