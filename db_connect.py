@@ -13,7 +13,6 @@ db = mysql.connector.connect(
     port=os.getenv('DB_PORT')
 )
 
-cursor = db.cursor(dictionary=True)
 
 if db.is_connected():
     print('successful_connection')

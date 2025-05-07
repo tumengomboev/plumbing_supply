@@ -1,17 +1,4 @@
 {% include "header.html" %}
-        <div class="top_banner"></div>
-        <div class="search_bar">
-            <input type="text">
-            <button class="material-symbols-outlined">search</button>
-        </div>
-        <div class="item_collection">
-            {% for product_type in product_types %}
-                <a href="product_type/{{product_type.name}}">
-                    <div style="background-image: url( {{product_type.image}} )">
-                        <h4>{{ product_type.name.replace('_', ' ') }}</h4>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
+{% include "main.html" %}
 {% include "footer.html" %}
-
+`

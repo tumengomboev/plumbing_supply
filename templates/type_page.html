@@ -1,42 +1,18 @@
 {% include "header.html" %}
 <div class="type_item_page">
     <ul>
-        <li>
-            <div>
-                <img src="/src/images/moen_bathroom_faucet.jpg">
-            </div>
-            <div>
-                <h4>moen</h4>
-                <strong>$<span>100</span></strong>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="/src/images/glacier_bathroom_faucet.jpg">
-            </div>
-            <div>
-                <h4>glacier</h4>
-                <strong>$<span>99</span></strong>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="/src/images/delta_bathroom_faucet.jpg">
-            </div>
-            <div>
-                <h4>delta</h4>
-                <strong>$<span>49</span></strong>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="/src/images/kohler_bathroom_faucet.jpg">
-            </div>
-            <div>
-                <h4>kohler</h4>
-                <strong>$<span>800</span></strong>
-            </div>
-        </li>
+        {% for product_item in product_list %}
+            <li>
+                <div>
+                     <img src="/src{{product_item.image}}">
+                </div>
+                <div>
+                    <h4>{{product_item.name}}</h4>
+                    <strong>$<span>{{product_item.price}}</span></strong>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 </div>
 {% include "footer.html" %}
+`
