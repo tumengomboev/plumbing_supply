@@ -1,5 +1,5 @@
 {% include "header.html" %}
-<div class="type_item_page">
+<div class="page type_item_page">
     <ul>
         {% for product_item in product_list %}
             <li>
@@ -9,10 +9,10 @@
                 <div>
                     <h4>{{product_item.name}}</h4>
                     <strong>$<span>{{product_item.price}}</span></strong>
+                    <button data-product_id="{{product_item.id}}">Add to the cart</button>
                 </div>
             </li>
         {% endfor %}
     </ul>
 </div>
 {% include "footer.html" %}
-`

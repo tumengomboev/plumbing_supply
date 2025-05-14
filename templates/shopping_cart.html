@@ -1,0 +1,58 @@
+{% include "header.html" %}
+<div class="page shopping_cart_page">
+    <ol>
+        <li>
+            <strong>moen</strong>
+            <div>
+                <input type="number" min=1 max=100 value=1>
+                <strong>$<span>100</span></strong>
+            </div>
+        </li>
+        <li>
+            <strong>moen</strong>
+            <div>
+                <input type="number" min=1 max=100 value=1>
+                <strong>$<span>100</span></strong>
+            </div>
+        </li>
+        <li>
+            <strong>moen</strong>
+            <div>
+                <input type="number" min=1 max=100 value=1>
+                <strong>$<span>100</span></strong>
+            </div>
+        </li>
+    </ol>
+    <hr />
+    <div class="total">
+        <div>
+            <strong>Total:</strong>
+            <strong>$<span>200</span></strong>
+        </div>
+    </div>
+    <div class="order_form">
+        <h3>Order register</h3>
+        <form>
+            <div>
+                <label>Name</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>Phone</label>
+                <input type="tel">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email">
+            </div>
+            <div>
+                <label>Address</label>
+                <input type="text">
+            </div>
+            <div>
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% include "footer.html" %}

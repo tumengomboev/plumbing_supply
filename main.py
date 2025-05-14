@@ -124,6 +124,19 @@ class MyServer(BaseHTTPRequestHandler):
                 product_list=product_list)
             self.wfile.write(html_content.encode())
 
+        elif self.path.startswith('/shopping_cart'):
+            parsed_url = urlparse(self.path)
+
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+
+            template = environment.get_template("shopping_cart.html")
+            html_content = template.render(
+                title=f"Plumbing Supply | Shopping Cart",
+                )
+            self.wfile.write(html_content.encode())
+
         
        
 def run(server_class=HTTPServer, handler_class=MyServer, port=8080):
